@@ -1,83 +1,38 @@
+var katzDeliLine = []; 
+var number = 0;
 
-function takeANumber(katzDeliLine, name) {
+function takeANumber(katzDeliLine) {
+  number++;
+  katzDeliLine.push(number);
   
-  katzDeliLine.push(name);
-  
-  var i = katzDeliLine.length;
-  
-  return `Welcome, ${name}. You are number ${i} in line.`;
+  return `You should be listening for ${number}.`;
 }
 
 
-  
+
 function nowServing(katzDeliLine) {
   
-  if (katzDeliLine.length === 0) {
-    
-    return "There is nobody waiting to be served!";
-    
-    } else {
+  if (katzDeliLine.length === 0) return "There is nobody waiting to be served!";
+  
+  return `Currently serving ${katzDeliLine.shift()}.`;
+}
 
-    return `Currently serving ${katzDeliLine.shift()}.`;
-    
-    }
-  }
-  
-  
+
 function currentLine(katzDeliLine) {
-  
-  /*DO NOT MODIFY ORIGINAL ARRAY*/
-  if (katzDeliLine.length === 0) {
-    return "The line is currently empty.";
-  }
+ 
+  if (!katzDeliLine.length) return "The line is currently empty."; //bang
   
   var newArray = [];
   
-  for(let i = 0; i < katzDeliLine.length; i++) {
-    newArray.push(`${i+1}. ${katzDeliLine[i]}`);
+  for (let i = 0; i < katzDeliLine.length; i++) {
+      newArray.push(katzDeliLine[i]);
   }
-  return `The line is currently: ${newArray.join(', ')}`;
+  
+  return `The line is currently: ${newArray.join(", ")}`; 
 }
- 
- 
- 
- 
- 
- 
- /* DESTRUCTIVE function currentLine(katzDeliLine) {
-    
-    if (katzDeliLine.length === 0) {
-      return "The line is currently empty.";
-    }
-    
-    for (let i = 0; i < katzDeliLine.length; i++) {
-      katzDeliLine[i] = `${i+1}. ${katzDeliLine[i]}`;
-    }
-    return `The line is currently: ${katzDeliLine.join(', ')}`;
-  } */
-  
-  
 
 
-/* ALTERNATIVE WAY TO PASS THIS TEST
-function  currentLine(katzDeliLine) {
-  
-  if(katzDeliLine.length === 0){
-      return 'The line is currently empty.'
 
-  }
-  let msg = ''
-  
-  for(let i = 0; i < katzDeliLine.length; i++){
-    if(i > 0){
-      msg += ', '
-    }
-    msg += (i + 1) + '. ' + katzDeliLine[i]
-  }
-  
-  return 'The line is currently: ' + msg
-  
-}*/
 
 
 
